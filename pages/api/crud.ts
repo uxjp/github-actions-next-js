@@ -14,5 +14,10 @@ export default function handler(
 ) {
     if (req.method === 'GET') {
         res.status(200).json(data)
+    } else if (req.method === 'POST') {
+        const { name, lastName } = req.body
+        data.push({ id: data.length + 1 , name: name, lastName: lastName })
+
+        res.status(200).json(data)
     }
 }
