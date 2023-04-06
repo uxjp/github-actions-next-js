@@ -25,5 +25,10 @@ export default function handler(
         data[index] = { id, name, lastName }
 
         res.status(200).json(data)
+    } else if (req.method === 'DELETE') {
+        const { id } = req.body
+        data = data.filter((item) => item.id !== id);
+
+        res.status(200).json(data)
     }
 }
