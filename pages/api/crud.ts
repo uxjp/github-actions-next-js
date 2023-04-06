@@ -19,5 +19,11 @@ export default function handler(
         data.push({ id: data.length + 1 , name: name, lastName: lastName })
 
         res.status(200).json(data)
+    } else if (req.method === 'PUT') {
+        const { id, name, lastName } = req.body
+        const index = data.findIndex((item) => item.id === id)
+        data[index] = { id, name, lastName }
+
+        res.status(200).json(data)
     }
 }
