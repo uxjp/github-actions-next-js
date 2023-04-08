@@ -1,0 +1,17 @@
+name: Test Next App
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run:  yarn install
+      - name: Build app
+        run:  yarn build
+      - name: Run tests
+        run:  yarn test
